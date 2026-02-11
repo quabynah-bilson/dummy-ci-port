@@ -5,9 +5,6 @@ on:
   schedule:
     - cron: '0 */1 * * *' # Determines the scheduled interval for this workflow. This example runs every hour.
 
-env:
-   CUSTOM_HTTP_HEADERS: ${{ secrets.OCEAN__INTEGRATION__CONFIG__CUSTOM_HTTP_HEADERS || '{}' }}
-
 jobs:
   run-integration:
     runs-on: ubuntu-latest
@@ -27,4 +24,4 @@ jobs:
             server_url: https://flux-magnitude-together-park.trycloudflare.com
             ignore_server_error: true
             allow_insecure: true
-            custom_http_headers: ${{ env.CUSTOM_HTTP_HEADERS }}
+            custom_http_headers: ${{ secrets.OCEAN__INTEGRATION__CONFIG__CUSTOM_HTTP_HEADERS }}
