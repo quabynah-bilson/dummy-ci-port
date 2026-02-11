@@ -11,8 +11,18 @@ jobs:
     timeout-minutes: 30 # Set a time limit for the job
 
     steps:
-      - name: Debug secret value
-        run: echo ${{ secrets.OCEAN__INTEGRATION__CONFIG__CUSTOM_HTTP_HEADERS }}
+      - name: Debug secret length (confirms full value exists)
+        run: |
+          echo "Length of custom headers secret: $(printf '%s' '${{ secrets.OCEAN__INTEGRATION__CONFIG__CUSTOM_HTTP_HEADERS }}' | wc -c)"
+      - name: Test if it is valid JSON structure
+        run: |
+          HEADERS='${{ secrets.OCEAN__INTEGRATION__CONFIG__CUSTOM_HTTP_HEADERS }}'
+          if printf '%s' "$HEADERS" | grep -q '^{.*}$'; then
+            echo "Looks like a JSON object (starts with { ends with })"
+          else
+            echo "Does NOT look like a wrapped JSON object"
+          fi
+          echo "Length: ${#HEADERS}"
       - uses: port-labs/ocean-sail@v1
         with:
           type: 'argocd'
@@ -26,4 +36,4 @@ jobs:
             server_url: https://fatidic-tamiko-brightly.ngrok-free.dev
             ignore_server_error: true
             allow_insecure: true
-            custom_http_headers: {"x-customer-guid": "MJ0OS4tO5MScchpnE4m23Wbp12JZcf4IHlg1fOZc1ejHHZB07sR0qH4bkg62ovX7"}
+            custom_http_headers: "{"x-customer-guid": "MJ0OS4tO5MScchpnE4m23Wbp12JZcf4IHlg1fOZc1ejHHZB07sR0qH4bkg62ovX7"}"
