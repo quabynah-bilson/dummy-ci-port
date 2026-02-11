@@ -11,6 +11,8 @@ jobs:
     timeout-minutes: 30 # Set a time limit for the job
 
     steps:
+      - name: Debug secret value
+        run: echo ${{ secrets.OCEAN__INTEGRATION__CONFIG__CUSTOM_HTTP_HEADERS }}
       - uses: port-labs/ocean-sail@v1
         with:
           type: 'argocd'
@@ -24,4 +26,4 @@ jobs:
             server_url: https://fatidic-tamiko-brightly.ngrok-free.dev
             ignore_server_error: true
             allow_insecure: true
-            custom_http_headers: ${{ fromJson(secrets.OCEAN__INTEGRATION__CONFIG__CUSTOM_HTTP_HEADERS) }}
+            custom_http_headers: '${{ secrets.OCEAN__INTEGRATION__CONFIG__CUSTOM_HTTP_HEADERS }}'
