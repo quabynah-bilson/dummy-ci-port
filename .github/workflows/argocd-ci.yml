@@ -6,7 +6,7 @@ on:
     - cron: '0 */1 * * *' # Determines the scheduled interval for this workflow. This example runs every hour.
 
 env:
-   CUSTOM_HTTP_HEADERS: ${{ secrets.OCEAN__INTEGRATION__CONFIG__CUSTOM_HTTP_HEADERS }}
+   CUSTOM_HTTP_HEADERS: ${{ secrets.OCEAN__INTEGRATION__CONFIG__CUSTOM_HTTP_HEADERS || '{}' }}
 
 jobs:
   run-integration:
@@ -26,5 +26,5 @@ jobs:
             token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhcmdvY2QiLCJzdWIiOiJhZG1pbjphcGlLZXkiLCJuYmYiOjE3NzA4MDYzMDUsImlhdCI6MTc3MDgwNjMwNSwianRpIjoiYzg5MmMwZmQtNGM1MS00MjJmLWI2ODUtOTk3NGUwMTgyYjI1In0.PVmaOylrsEkeLGnFNjWt2GidA51AmVFTncti8WULGuM
             server_url: https://fatidic-tamiko-brightly.ngrok-free.dev
             ignore_server_error: false
-            custom_http_headers: ${{ fromJson(env.CUSTOM_HTTP_HEADERS) }}
+            custom_http_headers: ${{ env.CUSTOM_HTTP_HEADERS }}
             allow_insecure: true
