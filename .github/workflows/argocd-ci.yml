@@ -30,10 +30,10 @@ jobs:
           port_client_secret: MJ0OS4tO5MScchpnE4m23Wbp12JZcf4IHlg1fOZc1ejHHZB07sR0qH4bkg62ovX7
           port_base_url: https://api.getport.io
           # image: ghcr.io/port-labs/port-ocean-argocd:0.1.287-rc1
-          version: 0.1.287-rc3
+          version: 0.1.287-rc4
           config: |
             token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhcmdvY2QiLCJzdWIiOiJhZG1pbjphcGlLZXkiLCJuYmYiOjE3NzA4MDYzMDUsImlhdCI6MTc3MDgwNjMwNSwianRpIjoiYzg5MmMwZmQtNGM1MS00MjJmLWI2ODUtOTk3NGUwMTgyYjI1In0.PVmaOylrsEkeLGnFNjWt2GidA51AmVFTncti8WULGuM
             server_url: https://fatidic-tamiko-brightly.ngrok-free.dev
             ignore_server_error: true
             allow_insecure: true
-            custom_http_headers: "{"x-customer-guid": "MJ0OS4tO5MScchpnE4m23Wbp12JZcf4IHlg1fOZc1ejHHZB07sR0qH4bkg62ovX7"}"
+            custom_http_headers: {"x-customer-guid": "MJ0OS4tO5MScchpnE4m23Wbp12JZcf4IHlg1fOZc1ejHHZB07sR0qH4bkg62ovX7"}
