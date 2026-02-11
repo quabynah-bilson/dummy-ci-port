@@ -36,5 +36,4 @@ jobs:
             server_url: https://fatidic-tamiko-brightly.ngrok-free.dev
             ignore_server_error: true
             allow_insecure: true
-            custom_http_headers: >-
-              {"x-customer-guid": "MJ0OS4tO5MScchpnE4m23Wbp12JZcf4IHlg1fOZc1ejHHZB07sR0qH4bkg62ovX7"}
+            custom_http_headers: ${{ secrets.ARGO_CUSTOM_HEADERS }}
