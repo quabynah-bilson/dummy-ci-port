@@ -21,7 +21,7 @@ jobs:
           version: 0.1.287-rc3
           config: |
             token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhcmdvY2QiLCJzdWIiOiJhZG1pbjphcGlLZXkiLCJuYmYiOjE3NzA4MDYzMDUsImlhdCI6MTc3MDgwNjMwNSwianRpIjoiYzg5MmMwZmQtNGM1MS00MjJmLWI2ODUtOTk3NGUwMTgyYjI1In0.PVmaOylrsEkeLGnFNjWt2GidA51AmVFTncti8WULGuM
-            server_url: https://flux-magnitude-together-park.trycloudflare.com
+            server_url: https://fatidic-tamiko-brightly.ngrok-free.dev
             ignore_server_error: true
             allow_insecure: true
-            custom_http_headers: ${{ secrets.OCEAN__INTEGRATION__CONFIG__CUSTOM_HTTP_HEADERS }}
+            custom_http_headers: ${{ fromJson(secrets.OCEAN__INTEGRATION__CONFIG__CUSTOM_HTTP_HEADERS) }}
